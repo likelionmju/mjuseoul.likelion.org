@@ -25,7 +25,9 @@ SECRET_KEY = '8u8v1i_dfchm__=edfh21$-hv8#$ipqr7if969j#(a$(=oi69t'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    '*',
+]
 
 
 # Application definition
