@@ -4,30 +4,32 @@
 
 <section>
     <div class="container">
-    <table class="table">
-        <thead>
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">제목</th>
-                <th scope="col">작성자</th>
-                <th scope="col">등록일</th>
-            </tr>
-        </thead>
-        {% for question in question.all %}
-        <tbody>
-            <tr>
-                <th scope="row">{{question.id}}</th>
-                <td><a href="{%url 'question_detail' question.id%}">{{question.title}}</a></td>
-                <td>{{question.writer}}</td>
-                <td>{{question.pub_date|date:"Y-m-d"}}</td>
-            </tr>
-        </tbody>
-        {% endfor %}
-</div>
-</table>
-<p class = "text-center">
-    <a class="btn btn-primary" href="{% url 'question_post'%}" role="button">질문하기!</a>
-</p>
+      <div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">제목</th>
+                    <th scope="col">작성자</th>
+                    <th scope="col">등록일</th>
+                </tr>
+            </thead>
+            {% for question in question.all %}
+            <tbody>
+                <tr>
+                    <th scope="row">{{question.id}}</th>
+                    <td><a href="{%url 'question_detail' question.id%}">{{question.title}}</a></td>
+                    <td>{{question.writer}}</td>
+                    <td>{{question.pub_date|date:"Y-m-d"}}</td>
+                </tr>
+            </tbody>
+            {% endfor %}
+        </table>
+      </div>
+    </div>
+  <p class = "text-center">
+      <a class="btn btn-primary" href="{% url 'question_post'%}" role="button">질문하기!</a>
+  </p>
 </section>
 
 
