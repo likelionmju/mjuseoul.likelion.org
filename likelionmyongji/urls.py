@@ -22,6 +22,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', page.views.home, name='home'),
     path('question/', question.views.question_list, name='question_list'),
-    path('question/<int:question_id>', question.views.question_detail, name='question_detail'),
-    path('question/post', question.views.question_post, name='question_post'),
+    path('question/<int:question_id>/', question.views.question_detail, name='question_detail'),
+    path('question/post/', question.views.question_post, name='question_post'),
+    path('question/delete/<int:question_id>/', question.views.question_delete, name='question_delete'),
 ]

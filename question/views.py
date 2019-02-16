@@ -25,3 +25,8 @@ def question_post(request):
     else:
         form = QuestionPost()
         return render(request, 'question_post.html', {'form':form})
+
+def question_delete(request, question_id):
+    post = get_object_or_404(Question, pk=question_id)
+    post.delete()
+    return redirect('question_list')
