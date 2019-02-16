@@ -1,9 +1,0 @@
-<div class="container">
-        <div class="form_box">
-            <form method="POST">
-                {% csrf_token %}
-                <h3>{{ post.title }} - 삭제하기</h3>
-                <a href="{%url 'question_delete' post.id %}">삭제</a>
-            </form>
-        </div>
-    </div>
