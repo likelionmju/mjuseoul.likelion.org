@@ -28,5 +28,7 @@ def question_post(request):
 
 def question_delete(request, question_id):
     post = get_object_or_404(Question, pk=question_id)
-    post.delete()
-    return redirect('question_list')
+
+    if request.POST['password'] == post.password:
+        post.delete()
+        return redirect('question_list')

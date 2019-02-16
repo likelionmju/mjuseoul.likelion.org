@@ -11,7 +11,11 @@
         <blockquote class="blockquote"> {{detail.body}}</blockquote>
         <div class="center">
             <a href="{%url 'question_list'%}" class="badge badge-primary">첫 화면으로...</a>
-            <a href="{%url 'question_delete' detail.id%}">삭제</a>
+            <form action="{%url 'question_delete' detail.id%}" method="POST">
+                {% csrf_token %}
+                <span>글을 삭제하려면 비밀번호를 입력하세요.</span><input type="password" name="password">
+                <input type="submit" value="삭제">
+            </form>
             <br>
             <br>
         </div>
