@@ -21,7 +21,8 @@ def question_post(request):
             post.pub_date = timezone.now()
             post.save()
             return redirect('question_list')
-
+        else:
+            return redirect('question_post')
     else:
         form = QuestionPost()
         return render(request, 'question_post.html', {'form':form})
@@ -32,3 +33,5 @@ def question_delete(request, question_id):
     if request.POST['password'] == post.password:
         post.delete()
         return redirect('question_list')
+    else:
+        return redirect('question_detail', question_id)
