@@ -8,7 +8,7 @@
         <br>
         <h2 class="section-heading text-uppercase text-center">Q&A</h2>
         <h3 class="section-subheading text-muted text-center">질문을 남겨주세요</h3>
-        <form method="POST" class="form-horizontal">
+        <form method="POST" class="form-horizontal" action="{% url 'question.edit' %}">
             {% csrf_token %}
             <div class="container col-md-8" style="text-align: center;">
               <input class="form-control" type="text" placeholder="제목" name="title">

@@ -21,7 +21,10 @@
               <input type="submit" class="btn btn-danger" value="삭제">
             </form>
             <br>
-            <p class="text-right"><a class="btn btn-primary" href="{%url 'question_list'%}" role="button">이전 페이지</a></p>
+            <p class="text-right">
+              <a class="btn btn-primary" href="{%url 'question_edit' detail.id%}" role="button">수정</a>
+              <a class="btn btn-primary" href="{%url 'question_list'%}" role="button">이전 페이지</a>
+            </p>
           </div>
         </div>
       </div>

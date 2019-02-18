@@ -35,3 +35,15 @@ def question_delete(request, question_id):
         return redirect('question_list')
     else:
         return redirect('question_detail', question_id)
+
+def question_edit(request, question_id):
+    post = get_object_or_404(Question, pk=question_id)
+
+    if request.method == 'POST':
+        post.title = request.POST['title']
+        post.body = request.POST['body']
+        post.writer = request.POST['writer']
+        if request.POST['password'] == post.password:
+            post.save()
+        return redirect('question_detail', question_id)
+    return render(request, 'question_edit.html', {'post': post})
