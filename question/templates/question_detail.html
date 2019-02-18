@@ -11,6 +11,28 @@
           <h3 class="card-title">{{detail.title}}</h3>
           <p class="card-subtitle mb-2 text-muted">{{detail.pub_date}}</p>
           <p class="lead"> {{detail.body}}</p>
+          <hr>
+          <form method ="POST" action ="{% url 'comment' detail.id %}">
+              {% csrf_token %}
+              <textarea class="form-control" name="content" rows="1" cols="30" placeholder="댓글"></textarea>
+              <br>
+              <input class="form-control" type="text" placeholder="작성자" name="writer">
+              <br>
+              <input class="form-control" type="text" placeholder="비밀번호" name="password">
+              <br>
+              <input class="btn btn-dark" type="submit" value="댓글달기">
+          </form>
+          <hr>
+          {% for comment in detail.comments.all %}
+            <div class="comment">
+              <div class="date">{{ comment.pub_date }}</div>
+                <strong>{{ comment.writer }}</strong>
+                <p>{{ comment.content|linebreaks }}</p>
+              </div>
+          {% empty %}
+            <p>No comments here yet :(</p>
+          {% endfor %}
+          <hr>
           <div class="float-right">
             <label>글을 삭제하려면 비밀번호를 입력하세요</label>
             <form action="{%url 'question_delete' detail.id%}" method="POST" class="form-inline">

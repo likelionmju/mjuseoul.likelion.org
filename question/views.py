@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
-from .models import Question
-from .form import QuestionPost
+from .models import Question, Comment
+from .form import QuestionPost, CommentForm
 
 
 # Create your views here.
@@ -47,3 +47,15 @@ def question_edit(request, question_id):
             post.save()
         return redirect('question_detail', question_id)
     return render(request, 'question_edit.html', {'post': post})
+
+def comment(request, question_id):
+    post = get_object_or_404(Question, pk=question_id)
+
+    if request.method == 'POST':
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            comment = form.save(commit=False)
+            comment.pub_date = timezone.now()
+            comment.question = post
+            comment.save()
+            return redirect('question_detail', question_id)

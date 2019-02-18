@@ -26,4 +26,5 @@ urlpatterns = [
     path('question/post/', question.views.question_post, name='question_post'),
     path('question/delete/<int:question_id>/', question.views.question_delete, name='question_delete'),
     path('question/edit/<int:question_id>/', question.views.question_edit, name='question_edit'),
+    path('question/comment/<int:question_id>/', question.views.comment, name='comment'),
 ]
