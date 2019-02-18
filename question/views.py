@@ -59,3 +59,5 @@ def comment(request, question_id):
             comment.question = post
             comment.save()
             return redirect('question_detail', question_id)
+        else:
+            return redirect('question_detail', question_id)    
