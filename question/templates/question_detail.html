@@ -8,7 +8,8 @@
         <div class="card-body">
           <br>
           <br>
-          <h3 class="card-title">{{detail.title}} <small class="card-subtitle mb-2 text-muted">{{detail.pub_date}}</small></h3>
+          <h3 class="card-title">{{detail.title}}</h3>
+          <p class="card-subtitle mb-2 text-muted">{{detail.pub_date}}</p>
           <p class="lead"> {{detail.body}}</p>
           <div class="float-right">
             <label>글을 삭제하려면 비밀번호를 입력하세요</label>
@@ -20,7 +21,7 @@
               <input type="submit" class="btn btn-danger" value="삭제">
             </form>
             <br>
-            <p class="text-right"><a class="btn btn-primary" href="{%url 'question_list'%}" role="button">이전 화면으로</a></p>
+            <p class="text-right"><a class="btn btn-primary" href="{%url 'question_list'%}" role="button">이전 페이지</a></p>
           </div>
         </div>
       </div>
