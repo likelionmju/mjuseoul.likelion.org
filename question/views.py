@@ -61,3 +61,14 @@ def comment(request, question_id):
             return redirect('question_detail', question_id)
         else:
             return redirect('question_detail', question_id)    
+
+def comment_delete(request, question_id, comment_id):
+    comment = get_object_or_404(Comment, pk=comment_id)
+
+    if request.method == 'POST':
+        if request.POST['password'] == comment.password:
+            comment.delete()
+            return redirect('question_detail', question_id)
+        else:
+            return redirect('question_detail', question_id)
+    return render(request, 'comment_delete.html')

@@ -25,6 +25,9 @@
           {% for comment in detail.comments.all %}
             <div class="comment">
               <div class="date">{{ comment.pub_date }}</div>
+                <a class="btn btn-danger btn-sm float-right" href="{% url 'comment_delete' detail.id comment.id %}">
+                  <i class="fas fa-trash-alt"></i>
+                </a>
                 <strong>{{ comment.writer }}</strong>
                 <p>{{ comment.content|linebreaks }}</p>
               </div>

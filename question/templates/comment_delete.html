@@ -1,0 +1,24 @@
+{% extends 'question_base.html' %}
+
+{% block content %}
+<section>
+    <div class="container">
+        <div class="card">
+            <div class="card-body">
+                <form method="POST" class="form-horizontal">
+                    {% csrf_token %}
+                    <div class="container col-md-8" style="text-align: center;">
+                        <h2 class="section-heading text-uppercase text-center">Comment Delete</h2>
+                        <h3 class="section-subheading text-muted text-center">댓글을 삭제하려면 비밀번호를 입력하세요.</h3>
+                        <input type="password" class="form-control" name="password" placeholder="비밀번호">
+                        <br>
+                        <input type="submit" class="btn btn-info" value="삭제">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+{% endblock %}
