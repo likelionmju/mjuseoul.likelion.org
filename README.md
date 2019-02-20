@@ -7,6 +7,6 @@
 
 ---
 
-명지대학교(서울) 멋쟁이 사자처럼 7기 홍보를 위한 홈페이지
+명지대학교(서울) 멋쟁이 사자처럼 7기 홍보를 위한 Django 기반 홈페이지
 
 [DEMO] [http://mjuseoul.likelion.org](http://mjuseoul.likelion.org)
